@@ -1,0 +1,170 @@
+* {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+span {
+    color: #023859;
+}
+
+body {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.container {
+    width: 80%;
+    margin-top: 5%;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: rgb(229, 229, 230);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.10);
+    background: var(--white);
+}
+
+.container .titulo {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #023859;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    border: none;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.botao {
+    text-align: center;
+    color:white;
+}
+
+input {
+    width: 100%; /* Alterado para ocupar 100% da largura do container .input */
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgb(209, 202, 202);
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+textarea {
+    width:100%;
+    height: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgb(209, 202, 202);
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+#data {
+    width: 50%;
+    text-align: center;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    width: 40%;
+    text-align: center;
+}
+
+select::after {
+    content: '▼';
+    font-size: 12px;
+    color: #333;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 5px #023859;
+    border-color: #023859;
+}
+
+select option {
+    background-color: #fff;
+    color: #333;
+}
+
+select option:hover {
+    background-color: #f2f2f2;
+}
+
+
+
+.botao {
+    height: 45px;
+    margin: 30px 0;
+}
+
+.botao input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    background:linear-gradient(135deg,#023859, #023559);
+    color:white;
+}
+
+.ultimo_bloco select {
+    width: 40%;
+}
+
+td {
+    vertical-align: top;
+}
+
+#sede {
+    width: 50%;
+}
+
+#botao {
+    cursor:pointer;
+}
+
+#btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #023859; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    text-decoration: none; /* Remove sublinhado padrão */
+    border-radius: 5px; /* Borda arredondada */
+    transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+
+    /* Adiciona efeito de hover */
+    transition: background-color 0.3s ease;
+}
+
+#btn:hover {
+    background-color: #0056b3; /* Cor de fundo do botão quando hover */
+}

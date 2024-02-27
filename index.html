@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/estilo_login.css">
+    <style>
+        /* Adicione o CSS do captcha aqui */
+        .captch_box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .captch_box input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #ccc;
+            pointer-events: none;
+        }
+
+        .refresh_button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .captch_input input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Pagina Para Realizar O Login -->
+
+    <section>
+        <div class="teste">
+        <div class="login-box">
+            <form action="content/login.php" method="post" id="loginForm">
+                <h2>Login</h2>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="text" name="username" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" name="password" required>
+                    <label>Senha</label>
+                </div>
+
+                <!-- Captcha -->
+
+                <div class="captch_box">
+                    <input disabled>
+                    <button class="refresh_button">Refresh</button>
+                </div>
+
+                <div class="captch_input">
+                    <input type="text" placeholder="Digite captcha" required>
+                </div>
+
+                <!-- Botão De Entrar -->
+
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+    </section>
+
+    <!-- Script para puxar os icones-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.getElementById("loginForm");
+        const refreshButton = document.querySelector(".refresh_button");
+        const captchaInputBox = document.querySelector(".captch_input input");
+
+        const generateCaptcha = () => {
+            const randomString = Math.random().toString(36).substring(2, 7);
+            const randomStringArray = randomString.split("");
+            const changeString = randomStringArray.map((char) => (Math.random() > 0.5 ? char.toUpperCase() : char));
+            const captchaText = changeString.join("   ");
+            document.querySelector(".captch_box input").value = captchaText;
+        }
+
+        const refreshBtnClick = () => {
+            generateCaptcha();
+            captchaInputBox.value = "";
+        }
+
+        const submitBtnClick = (event) => {
+            const captchaValue = captchaInputBox.value.trim();
+            const actualCaptcha = document.querySelector(".captch_box input").value.trim().replace(/\s+/g, ''); // Remover espaços do valor gerado
+
+            if (!captchaValue || captchaValue !== actualCaptcha) {
+                event.preventDefault();
+                alert("O captcha está incorreto. Por favor, tente novamente.");
+            }
+        }
+
+        refreshButton.addEventListener("click", refreshBtnClick);
+        loginForm.addEventListener("submit", submitBtnClick);
+
+        generateCaptcha();
+        });
+    </script>
+
+</body>
+</html>
