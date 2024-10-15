@@ -13,6 +13,20 @@ Esse projeto foi o meu TCC do curso Técnico e obtive 97/100 pontos, sendo o tra
 
 Obs: O projeto não estava originalmente versionado no Github.
 
+## Instruções:
+1. Baixar ou clonar o repositório em localhost.
+2. Executar todas as queries do script TICKTSv4.sql
+3. Login da sede:
+* Login: Central BH 
+* Senha: 123
+4. Login da empreiteira:
+* Login: Mediterraneo
+* Senha: 123
+
+
+
+
+
 ## Linguagens Utilizadas:
 
 * HTML
