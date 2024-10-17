@@ -55,15 +55,6 @@ verificarAutenticacao();
                 </li>
 
                 <li>
-                    <a href="https://principal.altdesk.com.br" target="_blank">
-                        <span class="icon">
-                            <ion-icon name="logo-whatsapp"></ion-icon>
-                        </span>
-                        <span class="title">WhatsApp</span>
-                    </a>
-                </li>
-
-                <li>
                     <a href="logout.php">
                         <span class="icon">
                             <ion-icon name="log-out-outline"></ion-icon>

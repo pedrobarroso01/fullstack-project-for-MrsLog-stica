@@ -115,49 +115,6 @@ verificarAutenticacao();
                         </div> 
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <a href="#" id="btn" title="Clique aqui para obter uma melhoria na descrição">Melhorar Descrição</a>
-                        <script>
-                            $(document).ready(function() {
-                                $('#btn').click(function(event) {
-                                    event.preventDefault();
-
-                                    var descricao = $('#descricao').val(); // Obtém a mensagem do usuário
-                                    var mensagem_padrao = 'Por favor, melhore a descrição da seguinte Ordem de Serviço: \n';
-                                    var mensagem_padrao_final = "\n Nosso objetivo é garantir que a descrição seja clara, detalhada e compreensível para a empreiteira. Por favor, expanda e aprimore a descrição conforme necessário. Obrigado! (não escreva mais nada além disso)";
-                                    var mensagem = mensagem_padrao + descricao + mensagem_padrao_final;
-                                    
-
-                                    // Dados a serem enviados para a API do ChatGPT
-                                    var requestData = {
-                                        model: 'gpt-3.5-turbo',
-                                        messages: [{ role: 'user', content: mensagem }]
-                                    };
-
-                                    $.ajax({
-                                        url: 'https://api.openai.com/v1/chat/completions',
-                                        type: 'POST',
-                                        beforeSend: function(xhr) {
-                                            xhr.setRequestHeader('Authorization', 'Bearer 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'); // Substitua SUA_CHAVE_DE_API pela sua chave de API
-                                            xhr.setRequestHeader('Content-Type', 'application/json');
-                                        },
-                                        data: JSON.stringify(requestData),
-                                        success: function(response) {
-                                            var resposta = response.choices[0].message.content; // Obtém a resposta do ChatGPT
-                                            $('#descricao').val(resposta); // Atualiza algum elemento na sua página com a resposta
-                                            updateTextoDigitado(document.getElementById('descricao'));
-                                        },
-                                        error: function(xhr, status, error) {
-                                            console.error('Erro na requisição AJAX:', error);
-                                        }
-                                    });
-                                });
-                            });
-
-                    </script>
-                    </td>
-                </tr>
                 
             </table>
             <div class="botao">
